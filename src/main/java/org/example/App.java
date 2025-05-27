@@ -13,6 +13,7 @@ public class App {
         try {
             session.beginTransaction();
 
+            /*
             Person person1 = new Person("Alex", 25);
             Person person2 = new Person("Eva", 23);
             Person person3 = new Person("Bob", 32);
@@ -20,11 +21,24 @@ public class App {
             session.save(person1);
             session.save(person2);
             session.save(person3);
+            */
 
+            /*
             Person getPerson = session.get(Person.class, 1);
+            getPerson.setName("Alexander");
             System.out.println(getPerson.getName() + " " + getPerson.getAge());
+            */
 
+            /*
+            Person getPerson = session.get(Person.class, 2);
+            session.delete(getPerson);
+            */
+
+            Person person = new Person("Nusha", 18);
+            session.save(person);
             session.getTransaction().commit();
+            System.out.println(person.getId());
+
         } finally {
             sessionFactory.close();
         }
